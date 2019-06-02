@@ -34,9 +34,17 @@ public class Menu extends MouseAdapter {
 	}
 
 	// Return if you clicked on Rectangle r
-	private boolean mouseOver(int mx, int my, Rectangle r) {
-		if (mx > r.x && mx < r.x + r.width)
-			if (my > r.y && my < r.y + r.height)
+	private boolean mouseOver(int mx, int my, MenuButton button) {
+		if (mx > button.getX() && mx < button.getX() + button.getWidth())
+			if (my > button.getY() && my < button.getY() + button.getHeight())
+				return true;
+
+		return false;
+	}
+
+	private boolean mouseOver(int mx, int my, MenuButtonPic button) {
+		if (mx > button.getX() && mx < button.getX() + button.getWidth())
+			if (my > button.getY() && my < button.getY() + button.getHeight())
 				return true;
 
 		return false;

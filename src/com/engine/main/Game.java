@@ -14,7 +14,7 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = -5888314627074306608L;
 
 	// Width and Height of the Game/Window
-	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+	public static int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 
 	// Games Sprite Sheet
 	public static BufferedImage sprite_sheet;
@@ -31,8 +31,10 @@ public class Game extends Canvas implements Runnable {
 	// Game menu
 	private Menu menu;
 
-	public Game() {
+	// Game Window
+	private Window w;
 
+	public Game() {
 		// Initializes Key components
 		handler = new Handler();
 		menu = new Menu(this);
@@ -42,7 +44,9 @@ public class Game extends Canvas implements Runnable {
 		hud = new HUD();
 
 		// Creates the window
-		new Window(WIDTH, HEIGHT, "Title", this);
+		w = new Window("Title", this);
+		WIDTH = w.getWidth();
+		HEIGHT = w.getHeight();
 	}
 
 	// Starts everything
